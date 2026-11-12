@@ -3381,48 +3381,48 @@ body[data-not-sent] > #vis-container ~ #not-sent {
     </defs>
   </svg><div id="vis-container"><h2 class="sr-only">Esquema com resultados no topo, câmbio, juros e dívida/PIB no meio e fundamentos embaixo, com setas diretas e de retroalimentação.</h2>
 <style>
-.wr{max-width:470px;margin:0 auto}
-.fb{display:flex;gap:6px;margin:0 0 6px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--text-secondary)}
-.fb button{font-size:13px;padding:2px 10px;height:auto}
+.wr{max-width:600px;margin:0 auto;font-size:12px}
+.fb{display:flex;gap:6px;margin:0 0 6px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--text-secondary)}
+.fb button{font-size:12px;padding:2px 10px;height:auto}
 .fb button.on{background:var(--surface-1);border-color:var(--border-stronger)}
-#det{border-top:0.5px solid var(--border);padding:8px 0 0;margin-top:4px;font-size:13px;line-height:1.55}
+#det{border-top:0.5px solid var(--border);padding:8px 0 0;margin-top:4px;font-size:12px;line-height:1.55}
 #det .it{padding:6px 0;border-bottom:0.5px solid var(--border)}
 #det .rf{font-size:12px;color:var(--text-secondary)}
-#det .tg{font-size:11px;padding:1px 6px;border-radius:var(--radius);margin-left:6px}
+#det .tg{font-size:12px;padding:0 6px;border-radius:var(--radius);margin-left:6px}
 .ep{cursor:pointer}
-.lb{font-size:20px}
+.lb{font-size:13.6px}
 </style>
 <div class="wr">
 <div class="fb">
 <button id="b-all" class="on" onclick="flt('all')">Todas</button>
 <button id="b-f" onclick="flt('f')">Diretas</button>
 <button id="b-b" onclick="flt('b')">Retroalimentações</button>
-<span style="margin-left:auto">— direta &nbsp;<span style="color:#D4537E">- - retro</span></span>
+<span style="margin-left:auto">— direta &nbsp;<span style="color:#D4537E">- - retroalimentação</span></span>
 </div>
 <svg width="100%" viewBox="0 0 680 320" role="img">
 <title>Esquema macroeconômico</title>
-<desc>Inflação, PIB e mercado financeiro no topo; câmbio, juros, dívida/PIB e primário no meio; fatores globais, PLII, conta corrente e reservas embaixo.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
+<desc>Inflação, crescimento e mercado financeiro no topo; câmbio, juros, dívida/PIB e primário no meio; fatores globais, PLII, conta corrente e reservas embaixo.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
 <g id="edges"></g>
 <g id="nodes"></g>
 </svg>
-<div style="font-size:12px;color:var(--text-muted);margin-top:4px">Global = fatores globais · CC = conta corrente · PLII = posição líquida de investimento internacional</div>
+<div style="font-size:12px;color:var(--text-muted);margin-top:4px">PLII = posição líquida de investimento internacional</div>
 <div id="det"><span style="color:var(--text-secondary)">Clique em uma variável ou seta.</span></div>
 </div>
 <script>
-const W=120,H=46;
+const W=124,H=46;
 const N={
-inf:["Inflação","Inflação","c-teal",90,20,140],
-cre:["Crescimento","PIB","c-teal",270,20,140],
-mer:["Mercado financeiro","Mercado fin.","c-teal",450,20,140],
-cam:["Câmbio","Câmbio","c-coral",70,130,W],
-jur:["Juros","Juros","c-coral",210,130,W],
-div:["Dívida/PIB","Dív./PIB","c-coral",350,130,W],
-pri:["Primário","Primário","c-purple",490,130,W],
-glob:["Fatores globais","Global","c-gray",50,250,W],
-plii:["PLII","PLII","c-purple",190,250,W],
-cc:["Conta corrente","CC","c-purple",330,250,W],
-res:["Reservas","Reservas","c-purple",510,250,W]};
+inf:["Inflação","c-teal",70,20,160],
+cre:["Crescimento","c-teal",260,20,160],
+mer:["Mercado financeiro","c-teal",450,20,160],
+cam:["Câmbio","c-coral",70,130,120],
+jur:["Juros","c-coral",210,130,120],
+div:["Dívida/PIB","c-coral",350,130,120],
+pri:["Primário","c-purple",490,130,120],
+glob:["Fatores globais","c-gray",50,250,W],
+plii:["PLII","c-purple",190,250,W],
+cc:["Conta corrente","c-purple",330,250,W],
+res:["Reservas","c-purple",510,250,W]};
 const E=[
 ["glob","cam","f",0,"Ciclo financeiro global: alta dos juros americanos, dólar forte e aversão a risco retiram capital de emergentes e depreciam suas moedas.","Rey (2013); Bruno e Shin (2015); Gopinath et al. (2020)"],
 ["glob","jur","f",0,"Juros externos e prêmio de risco global elevam o piso dos juros domésticos.","Rey (2013); Obstfeld e Rogoff (1996)"],
@@ -3453,16 +3453,16 @@ const E=[
 ["mer","cre","b",12,"Acelerador financeiro: preços de ativos melhoram o colateral e ampliam crédito e investimento.","Bernanke, Gertler e Gilchrist (1999)"]];
 const ns="http://www.w3.org/2000/svg",ng=document.getElementById('nodes'),eg=document.getElementById('edges');
 let cur=null,mode='all';
-function ctr(k){const n=N[k];return[n[3]+n[5]/2,n[4]+H/2]}
-function clip(k,tx,ty){const n=N[k],[cx,cy]=ctr(k),dx=tx-cx,dy=ty-cy,hw=n[5]/2+5,hh=H/2+5;const s=Math.min(dx?hw/Math.abs(dx):1e9,dy?hh/Math.abs(dy):1e9);return[cx+dx*s,cy+dy*s]}
-for(const k in N){const n=N[k],g=document.createElementNS(ns,'g');g.setAttribute('class','node '+n[2]);g.setAttribute('id','n-'+k);g.setAttribute('onclick',"sel('"+k+"')");
-g.innerHTML=`<rect x="${n[3]}" y="${n[4]}" width="${n[5]}" height="${H}" rx="8" stroke-width="0.8"/><text class="th lb" x="${n[3]+n[5]/2}" y="${n[4]+H/2}" text-anchor="middle" dominant-baseline="central">${n[1]}</text>`;ng.appendChild(g)}
+function ctr(k){const n=N[k];return[n[2]+n[4]/2,n[3]+H/2]}
+function clip(k,tx,ty){const n=N[k],[cx,cy]=ctr(k),dx=tx-cx,dy=ty-cy,hw=n[4]/2+5,hh=H/2+5;const s=Math.min(dx?hw/Math.abs(dx):1e9,dy?hh/Math.abs(dy):1e9);return[cx+dx*s,cy+dy*s]}
+for(const k in N){const n=N[k],g=document.createElementNS(ns,'g');g.setAttribute('class','node '+n[1]);g.setAttribute('id','n-'+k);g.setAttribute('onclick',"sel('"+k+"')");
+g.innerHTML=`<rect x="${n[2]}" y="${n[3]}" width="${n[4]}" height="${H}" rx="8" stroke-width="0.6"/><text class="th lb" x="${n[2]+n[4]/2}" y="${n[3]+H/2}" text-anchor="middle" dominant-baseline="central">${n[0]}</text>`;ng.appendChild(g)}
 E.forEach((e,i)=>{const[a,b,t,off]=e,[x0,y0]=ctr(a),[x1,y1]=ctr(b),mx=(x0+x1)/2,my=(y0+y1)/2,dx=x1-x0,dy=y1-y0,L=Math.hypot(dx,dy),qx=mx+(-dy/L)*off,qy=my+(dx/L)*off,[sx,sy]=clip(a,qx,qy),[ex,ey]=clip(b,qx,qy),d=`M${sx} ${sy} Q${qx} ${qy} ${ex} ${ey}`;
-const p=document.createElementNS(ns,'path');p.setAttribute('d',d);p.setAttribute('fill','none');p.setAttribute('stroke',t=='f'?'#888780':'#D4537E');p.setAttribute('stroke-width','1.6');if(t=='b')p.setAttribute('stroke-dasharray','7 5');p.setAttribute('marker-end','url(#arrow)');p.setAttribute('id','e-'+i);p.style.transition='opacity .2s';eg.appendChild(p);
-const h=document.createElementNS(ns,'path');h.setAttribute('d',d);h.setAttribute('fill','none');h.setAttribute('stroke','transparent');h.setAttribute('stroke-width','14');h.setAttribute('class','ep');h.setAttribute('id','h-'+i);h.onclick=()=>selE(i);eg.appendChild(h)});
+const p=document.createElementNS(ns,'path');p.setAttribute('d',d);p.setAttribute('fill','none');p.setAttribute('stroke',t=='f'?'#888780':'#D4537E');p.setAttribute('stroke-width','1.2');if(t=='b')p.setAttribute('stroke-dasharray','6 4');p.setAttribute('marker-end','url(#arrow)');p.setAttribute('id','e-'+i);p.style.transition='opacity .2s';eg.appendChild(p);
+const h=document.createElementNS(ns,'path');h.setAttribute('d',d);h.setAttribute('fill','none');h.setAttribute('stroke','transparent');h.setAttribute('stroke-width','12');h.setAttribute('class','ep');h.setAttribute('id','h-'+i);h.onclick=()=>selE(i);eg.appendChild(h)});
 function item(i){const e=E[i],fb=e[2]=='b';return`<div class="it"><span style="font-weight:500">${N[e[0]][0]} → ${N[e[1]][0]}</span><span class="tg" style="background:${fb?'var(--bg-danger)':'var(--surface-1)'};color:${fb?'var(--text-danger)':'var(--text-secondary)'}">${fb?'retroalimentação':'direta'}</span><div>${e[4]}</div><div class="rf">Referências: ${e[5]}</div></div>`}
 function vis(i){return mode=='all'||E[i][2]==mode}
-function paint(hl){E.forEach((e,i)=>{const p=document.getElementById('e-'+i),h=document.getElementById('h-'+i),v=vis(i);h.style.pointerEvents=v?'auto':'none';p.style.opacity=v?(hl?(hl(i)?1:0.07):0.55):0;p.setAttribute('stroke-width',hl&&hl(i)&&v?'2.6':'1.6')});
+function paint(hl){E.forEach((e,i)=>{const p=document.getElementById('e-'+i),h=document.getElementById('h-'+i),v=vis(i);h.style.pointerEvents=v?'auto':'none';p.style.opacity=v?(hl?(hl(i)?1:0.07):0.55):0;p.setAttribute('stroke-width',hl&&hl(i)&&v?'2':'1.2')});
 for(const k in N){document.getElementById('n-'+k).style.opacity=(!cur||cur==k||E.some((e,i)=>vis(i)&&((e[0]==cur&&e[1]==k)||(e[1]==cur&&e[0]==k))))?1:0.35}}
 function sel(k){if(cur==k){cur=null;paint(null);document.getElementById('det').innerHTML='<span style="color:var(--text-secondary)">Clique em uma variável ou seta.</span>';return}cur=k;paint(i=>E[i][0]==k||E[i][1]==k);
 const out=E.map((e,i)=>i).filter(i=>E[i][0]==k&&vis(i)),inn=E.map((e,i)=>i).filter(i=>E[i][1]==k&&vis(i));
