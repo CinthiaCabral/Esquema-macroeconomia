@@ -3379,7 +3379,7 @@ body[data-not-sent] > #vis-container ~ #not-sent {
         <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
       </marker>
     </defs>
-  </svg><div id="vis-container"><h2 class="sr-only">Esquema com resultados no topo, câmbio, juros e dívida/PIB no meio e fundamentos embaixo, com setas diretas e de retroalimentação.</h2>
+  </svg><div id="vis-container"><h2 class="sr-only">Esquema com resultados no topo, câmbio, juros e dívida/PIB no meio e fundamentos, incluindo comércio internacional, embaixo.</h2>
 <style>
 .wr{max-width:600px;margin:0 auto;font-size:12px}
 .fb{display:flex;gap:6px;margin:0 0 6px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--text-secondary)}
@@ -3400,8 +3400,8 @@ body[data-not-sent] > #vis-container ~ #not-sent {
 <span style="margin-left:auto">— direta &nbsp;<span style="color:#D4537E">- - retroalimentação</span></span>
 </div>
 <svg width="100%" viewBox="0 0 680 320" role="img">
-<title>Esquema macroeconômico</title>
-<desc>Inflação, crescimento e mercado financeiro no topo; câmbio, juros, dívida/PIB e primário no meio; fatores globais, PLII, conta corrente e reservas embaixo.</desc>
+<title>Esquema macroeconômico com comércio internacional</title>
+<desc>Inflação, crescimento do PIB e mercado financeiro no topo; câmbio, juros, dívida/PIB e primário no meio; fatores globais, PLII, comércio internacional e reservas embaixo.</desc>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
 <g id="edges"></g>
 <g id="nodes"></g>
@@ -3410,25 +3410,26 @@ body[data-not-sent] > #vis-container ~ #not-sent {
 <div id="det"><span style="color:var(--text-secondary)">Clique em uma variável ou seta.</span></div>
 </div>
 <script>
-const W=124,H=46;
+const H=46;
 const N={
-inf:["Inflação","c-teal",70,20,160],
-cre:["Crescimento","c-teal",260,20,160],
-mer:["Mercado financeiro","c-teal",450,20,160],
-cam:["Câmbio","c-coral",70,130,120],
-jur:["Juros","c-coral",210,130,120],
-div:["Dívida/PIB","c-coral",350,130,120],
-pri:["Primário","c-purple",490,130,120],
-glob:["Fatores globais","c-gray",50,250,W],
-plii:["PLII","c-purple",190,250,W],
-cc:["Conta corrente","c-purple",330,250,W],
-res:["Reservas","c-purple",510,250,W]};
+inf:["Inflação","c-teal",60,20,170],
+cre:["Crescimento do PIB","c-teal",255,20,170],
+mer:["Mercado financeiro","c-teal",450,20,170],
+cam:["Câmbio","c-coral",50,130,120],
+jur:["Juros","c-coral",190,130,120],
+div:["Dívida/PIB","c-coral",370,130,120],
+pri:["Primário","c-purple",510,130,120],
+glob:["Fatores globais","c-gray",40,250,124],
+plii:["PLII","c-purple",180,250,90],
+cc:["Comércio internacional","c-purple",290,250,190],
+res:["Reservas","c-purple",500,250,124]};
 const E=[
 ["glob","cam","f",0,"Ciclo financeiro global: alta dos juros americanos, dólar forte e aversão a risco retiram capital de emergentes e depreciam suas moedas.","Rey (2013); Bruno e Shin (2015); Gopinath et al. (2020)"],
 ["glob","jur","f",0,"Juros externos e prêmio de risco global elevam o piso dos juros domésticos.","Rey (2013); Obstfeld e Rogoff (1996)"],
 ["plii","cam","f",14,"PLII muito negativa exige rolagem de passivos externos e aumenta a sensibilidade a paradas súbitas.","Lane e Milesi-Ferretti (2001, 2007); Calvo (1998)"],
-["cc","cam","f",20,"Déficit em conta corrente depende de financiamento externo; quando ele seca, a moeda deprecia.","Mundell (1963); Fleming (1962); Obstfeld e Rogoff (1996)"],
-["cc","plii","f",0,"Identidade contábil: o saldo em conta corrente (fluxo) altera o estoque da PLII.","Lane e Milesi-Ferretti (2007)"],
+["cc","cam","f",20,"Saldo comercial: superávit traz divisas e aprecia a moeda; déficit precisa de financiamento externo e, quando ele seca, a moeda deprecia.","Mundell (1963); Fleming (1962); Obstfeld e Rogoff (1996)"],
+["cc","plii","f",0,"O saldo comercial, somado às rendas (juros, lucros e dividendos), forma a conta corrente, que altera o estoque da PLII.","Lane e Milesi-Ferretti (2007); IMF (2009), BPM6"],
+["cc","cre","f",0,"Exportações líquidas compõem a demanda agregada (Y = C + I + G + X − M). No longo prazo, a abertura comercial afeta a produtividade. Tarifas reduzem o comércio e o PIB dos dois lados.","Frankel e Romer (1999); Amiti, Redding e Weinstein (2019); Fajgelbaum et al. (2020)","M335 245 L335 71"],
 ["res","cam","f",40,"Reservas permitem intervenção, reduzem a volatilidade e funcionam como seguro contra paradas súbitas.","Calvo e Reinhart (2002); Jeanne e Rancière (2011); IMF (2011)"],
 ["res","jur","f",20,"Reservas adequadas reduzem o prêmio de risco soberano.","Jeanne e Rancière (2011); IMF (2011)"],
 ["pri","div","f",0,"O primário é o principal instrumento de controle da trajetória da dívida.","Bohn (1998); Blanchard (2019)"],
@@ -3445,6 +3446,7 @@ const E=[
 ["inf","jur","b",12,"Regra de reação do banco central: inflação acima da meta leva a juros mais altos.","Taylor (1993)"],
 ["jur","div","b",12,"Juros altos elevam o custo da dívida. A dívida/PIB cresce quando r supera g e o primário é insuficiente.","Blanchard (2019); Bohn (1998)"],
 ["cre","div","b",0,"Crescimento eleva o PIB e a arrecadação. A causalidade inversa é controversa.","Blanchard (2019); Reinhart e Rogoff (2010); Herndon, Ash e Pollin (2014)"],
+["cre","cc","b",0,"Crescimento eleva a absorção doméstica e as importações, piorando o saldo comercial (elasticidade-renda das importações).","Houthakker e Magee (1969); Obstfeld e Rogoff (1996)","M350 71 L350 245"],
 ["inf","div","b",12,"Inflação surpresa corrói o valor real da dívida nominal prefixada.","Sargent e Wallace (1981); Reinhart e Rogoff (2009)"],
 ["cam","div","b",70,"Pecado original: com dívida em moeda estrangeira ou indexada ao câmbio, a depreciação eleva a dívida/PIB.","Eichengreen e Hausmann (1999); Eichengreen, Hausmann e Panizza (2005)"],
 ["cam","cc","b",20,"Curva J e Marshall-Lerner: a depreciação primeiro piora e depois melhora a balança comercial.","Magee (1973); Obstfeld e Rogoff (1996)"],
@@ -3457,7 +3459,7 @@ function ctr(k){const n=N[k];return[n[2]+n[4]/2,n[3]+H/2]}
 function clip(k,tx,ty){const n=N[k],[cx,cy]=ctr(k),dx=tx-cx,dy=ty-cy,hw=n[4]/2+5,hh=H/2+5;const s=Math.min(dx?hw/Math.abs(dx):1e9,dy?hh/Math.abs(dy):1e9);return[cx+dx*s,cy+dy*s]}
 for(const k in N){const n=N[k],g=document.createElementNS(ns,'g');g.setAttribute('class','node '+n[1]);g.setAttribute('id','n-'+k);g.setAttribute('onclick',"sel('"+k+"')");
 g.innerHTML=`<rect x="${n[2]}" y="${n[3]}" width="${n[4]}" height="${H}" rx="8" stroke-width="0.6"/><text class="th lb" x="${n[2]+n[4]/2}" y="${n[3]+H/2}" text-anchor="middle" dominant-baseline="central">${n[0]}</text>`;ng.appendChild(g)}
-E.forEach((e,i)=>{const[a,b,t,off]=e,[x0,y0]=ctr(a),[x1,y1]=ctr(b),mx=(x0+x1)/2,my=(y0+y1)/2,dx=x1-x0,dy=y1-y0,L=Math.hypot(dx,dy),qx=mx+(-dy/L)*off,qy=my+(dx/L)*off,[sx,sy]=clip(a,qx,qy),[ex,ey]=clip(b,qx,qy),d=`M${sx} ${sy} Q${qx} ${qy} ${ex} ${ey}`;
+E.forEach((e,i)=>{const[a,b,t,off]=e;let d=e[6];if(!d){const[x0,y0]=ctr(a),[x1,y1]=ctr(b),mx=(x0+x1)/2,my=(y0+y1)/2,dx=x1-x0,dy=y1-y0,L=Math.hypot(dx,dy),qx=mx+(-dy/L)*off,qy=my+(dx/L)*off,[sx,sy]=clip(a,qx,qy),[ex,ey]=clip(b,qx,qy);d=`M${sx} ${sy} Q${qx} ${qy} ${ex} ${ey}`}
 const p=document.createElementNS(ns,'path');p.setAttribute('d',d);p.setAttribute('fill','none');p.setAttribute('stroke',t=='f'?'#888780':'#D4537E');p.setAttribute('stroke-width','1.2');if(t=='b')p.setAttribute('stroke-dasharray','6 4');p.setAttribute('marker-end','url(#arrow)');p.setAttribute('id','e-'+i);p.style.transition='opacity .2s';eg.appendChild(p);
 const h=document.createElementNS(ns,'path');h.setAttribute('d',d);h.setAttribute('fill','none');h.setAttribute('stroke','transparent');h.setAttribute('stroke-width','12');h.setAttribute('class','ep');h.setAttribute('id','h-'+i);h.onclick=()=>selE(i);eg.appendChild(h)});
 function item(i){const e=E[i],fb=e[2]=='b';return`<div class="it"><span style="font-weight:500">${N[e[0]][0]} → ${N[e[1]][0]}</span><span class="tg" style="background:${fb?'var(--bg-danger)':'var(--surface-1)'};color:${fb?'var(--text-danger)':'var(--text-secondary)'}">${fb?'retroalimentação':'direta'}</span><div>${e[4]}</div><div class="rf">Referências: ${e[5]}</div></div>`}
